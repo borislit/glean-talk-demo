@@ -8,7 +8,7 @@ interface State {
   isClicked: boolean;
 }
 
-class App extends Component<Props, State> {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
