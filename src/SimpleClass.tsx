@@ -5,33 +5,28 @@ interface Props {
 }
 
 interface State {
-  foo: string;
+  isClicked: boolean;
 }
 
 class App extends Component<Props, State> {
   constructor(props) {
     super(props);
     this.state = {
-      foo: 'someId',
+      isClicked: false,
     };
   }
 
-  componentDidMount() {
-    console.log('mounted');
-  }
-
-  componentWillUnmount() {
-    console.log('unmounted');
-  }
-
   handleClick() {
-    console.log('click');
+    this.setState({ isClicked: true });
   }
 
   render() {
     return (
       <div>
-        <div onClick={this.handleClick} id={this.state.foo} />
+        <div
+          onClick={this.handleClick}
+          className={this.state.isClicked ? 'is-clicked' : 'unclicked'}
+        />
         <div>{this.props.bar}</div>
       </div>
     );
